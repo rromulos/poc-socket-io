@@ -7,7 +7,6 @@ app.get('/', (req, res) => {
 })
 
 io.on('connection', (socket) => {
-    console.log('A new user has connected', socket.id)
     socket.on('msg', (msg) => {
         socket.broadcast.emit('msg', "<b>[" + socket.id+"] says: </b>" + msg)
     })
